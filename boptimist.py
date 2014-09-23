@@ -2,7 +2,7 @@
 
 import argparse
 import sys
-from subprocess import check_output, STDOUT, CalledProcessError
+from subprocess import check_call, STDOUT, CalledProcessError
 from time import sleep
 
 if __name__ == "__main__":
@@ -46,7 +46,7 @@ if __name__ == "__main__":
     for t in range(0, opts.retry):
         sys.stderr.write('running for the ' + str(t) + ' time...\n')
         try:
-            r = check_output(
+            check_call(
                 opts.args,
                 stdin=None,
                 stderr=STDOUT,
@@ -67,5 +67,3 @@ if __name__ == "__main__":
             else:
                 sys.stderr.write(
                     'process finally failed. return code: ' + str(e.returncode) + '\n')
-            r = e.output
-    print r
