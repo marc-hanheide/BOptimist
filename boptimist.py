@@ -55,7 +55,7 @@ if __name__ == "__main__":
             )
             sys.stderr.write(
                 'process succeeded\n')
-            break
+            sys.exit(0)
         except CalledProcessError, e:
             if (t < opts.retry - 1):
                 sys.stderr.write(
@@ -67,3 +67,4 @@ if __name__ == "__main__":
             else:
                 sys.stderr.write(
                     'process finally failed. return code: ' + str(e.returncode) + '\n')
+    sys.exit(1)
