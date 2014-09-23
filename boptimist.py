@@ -44,7 +44,7 @@ if __name__ == "__main__":
 
 
     for t in range(0, opts.retry):
-        sys.stderr.write('running for the ' + str(t) + ' time...\n')
+        sys.stderr.write('running for the ' + str(t+1) + ' time...\n')
         try:
             check_call(
                 opts.args,
