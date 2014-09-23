@@ -1,0 +1,4 @@
+BOtimist
+========
+
+Optimistic Bash executor
