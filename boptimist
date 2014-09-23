@@ -29,6 +29,12 @@ if __name__ == "__main__":
         help='Should the sleep time increase linearly with every try? Default: False')
 
     parser.add_argument(
+        '--shell',
+        default=False,
+        action='store_true',
+        help='Should the command run in a new shell (allows for complex shell commands)? Default: False')
+
+    parser.add_argument(
         'args',
         default=[],
         nargs='+',
@@ -44,7 +50,7 @@ if __name__ == "__main__":
                 opts.args,
                 stdin=None,
                 stderr=STDOUT,
-                shell=True,
+                shell=opts.shell,
                 universal_newlines=False
             )
             sys.stderr.write(
